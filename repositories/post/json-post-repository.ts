@@ -31,11 +31,21 @@ export class JsonPostRepository implements PostRepository {
   }
 
   async findById(id: string): Promise<PostModel> {
-    await this.simulateWait();
+  
     const posts = await this.findAllPublic();
     const post = posts.find((post) => post.id === id);
     if (!post) {
-      throw new Error(`Post com id ${id} não encontrado`);
+      throw new Error(`Post não encontrado com id ${id}`);
+    }
+
+    return post;
+  }
+  async findBySlugPublic(slug: string): Promise<PostModel> {
+
+    const posts = await this.findAllPublic();
+    const post = posts.find((post) => post.slug === slug);
+    if (!post) {
+      throw new Error(`Post não encontrado com slug ${slug}`);
     }
 
     return post;

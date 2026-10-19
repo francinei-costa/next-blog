@@ -11,8 +11,7 @@ export function Footer() {
           <Suspense fallback={null}>
             <CurrentYear />
           </Suspense>
-          -
-        </span>
+        </span>{' - '}
         <Link href="/">The Blog</Link>
       </p>
     </footer>

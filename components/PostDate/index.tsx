@@ -4,12 +4,14 @@ type PostDateProps = {
   dateTime: string;
 };
 
-export function PostDate({ dateTime }: PostDateProps) {
+export async function PostDate({ dateTime }: PostDateProps) {
+  const distanceToNow = await formatDistanceToNow(dateTime);
+
   return (
     <time
       className='text-slate-600 text-sm/tight'
       dateTime={dateTime}
-      title={formatDistanceToNow(dateTime)}
+      title={distanceToNow}
     >
       {formatDatetime(dateTime)}
     </time>

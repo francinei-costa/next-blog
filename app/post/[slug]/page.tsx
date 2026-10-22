@@ -4,7 +4,7 @@ import { findPublicPostBySlugCached } from "@/lib/post/queries/public";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
-// export const dynamic = 'force-static';
+//export const revalidate = 10;//Revalidate every 10 seconds
 
 type PostSlugPageProps = {
   params: Promise<{ slug: string }>;

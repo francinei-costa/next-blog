@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  // Defina seu perfil customizado aqui
+  cacheLife: {
+    cincoMinutos: {
+      stale: 300, // 5 min
+      revalidate: 300, // 5 min
+      expire: 600, // Expirar totalmente em 10 min, por exemplo
+    },
+  },
   turbopack: {
     rules: {
       "*.css": {

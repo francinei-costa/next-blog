@@ -17,6 +17,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "drizzle-orm": "^0.45.4",
+    "jose": "^6.2.13",
     "lucide-react": "^1.59.0",
     "next": "16.4.0",
     "react": "19.3.0",
@@ -47,6 +48,6 @@
   "allowScripts": {
     "better-sqlite3@13.0.3": true,
     "unrs-resolver@1.12.2": true,
-    "esbuild@0.25.12": true
+    "esbuild@0.28.2": true
   }
 }

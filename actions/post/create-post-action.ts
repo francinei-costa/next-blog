@@ -1,4 +1,5 @@
 'use server';
+import { z } from 'zod';
 
 import { makePartialPublicPost, PublicPost } from '@/dto/post/dto';
 import { verifyLoginSession } from '@/lib/login/manage-login';
@@ -41,7 +42,7 @@ export async function createPostAction(
   }
 
   if (!zodParsedObj.success) {
-    const errors = getZodErrorMessages(zodParsedObj.error.format());
+    const errors = getZodErrorMessages(z.formatError(zodParsedObj.error));
     return {
       errors,
       formState: makePartialPublicPost(formDataToObj),
@@ -73,6 +74,6 @@ export async function createPostAction(
     };
   }
 
-  revalidateTag('posts');
+  revalidateTag('posts','max');
   redirect(`/admin/post/${newPost.id}?created=1`);
 }

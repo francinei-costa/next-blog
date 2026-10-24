@@ -40,7 +40,7 @@ export const findAllPublicPostsCached = cache(
     // Define o tempo de vida usando perfis predefinidos (ex: 'hours') ou customizados
     cacheLife("hours");
     // Define a tag para invalidação on-demand
-    cacheTag("users-tag");
+    cacheTag("posts");
     // Os argumentos da função (ex: 'role') viram a chave do cache automaticamente!
     return await postRepository.findAllPublic();
   },

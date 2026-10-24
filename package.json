@@ -19,14 +19,14 @@
     "drizzle-orm": "^0.45.4",
     "jose": "^6.2.13",
     "lucide-react": "^1.59.0",
-    "next": "16.4.0",
+    "next": "^16.5.0-canary.26",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-markdown": "^10.1.0",
     "react-toastify": "^11.1.0",
     "rehype-sanitize": "^6.0.0",
     "remark-gfm": "^4.0.1",
-    "sanitize-html": "^2.18.0",
+    "sanitize-html": "^2.18.1",
     "slugify": "^1.6.9",
     "uuid": "^14.0.2",
     "zod": "^4.6.5"
@@ -48,6 +48,6 @@
   "allowScripts": {
     "better-sqlite3@13.0.3": true,
     "unrs-resolver@1.12.2": true,
-    "esbuild@0.28.2": true
+    "esbuild@0.25.12": true
   }
 }

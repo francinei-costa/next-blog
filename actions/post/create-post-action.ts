@@ -48,12 +48,13 @@ export async function createPostAction(
       formState: makePartialPublicPost(formDataToObj),
     };
   }
-
+  
+  const datacreatedAt = new Date().toISOString();
   const validPostData = zodParsedObj.data;
   const newPost: PostModel = {
     ...validPostData,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    createdAt: datacreatedAt,
+    updatedAt: datacreatedAt,
     id: uuidV4(),
     slug: makeSlugFromText(validPostData.title),
   };

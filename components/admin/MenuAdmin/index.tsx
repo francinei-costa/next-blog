@@ -13,16 +13,14 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, useTransition } from 'react';
+import { useState, useTransition } from 'react';
 
 export function MenuAdmin() {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  // O menu só é considerado aberto na rota em que foi aberto; ao navegar, fecha.
+  const [openedAtPath, setOpenedAtPath] = useState<string | null>(null);
+  const isOpen = openedAtPath === pathname;
   const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   const navClasses = clsx(
     'bg-slate-900 text-slate-100 rounded-lg',
@@ -33,7 +31,7 @@ export function MenuAdmin() {
     'sm:overflow-visible sm:h-auto',
   );
   const linkClasses = clsx(
-    '[&>svg]:w-[16px] [&>svg]:h-[16px] px-4',
+    '[&>svg]:w-4 [&>svg]:h-4 px-4',
     'flex items-center justify-start gap-2 cursor-pointer',
     'transition hover:bg-slate-800 rounded-lg',
     'h-10',
@@ -56,7 +54,7 @@ export function MenuAdmin() {
   return (
     <nav className={navClasses}>
       <button
-        onClick={() => setIsOpen(s => !s)}
+        onClick={() => setOpenedAtPath(isOpen ? null : pathname)}
         className={openCloseBtnClasses}
       >
         {!isOpen && (
